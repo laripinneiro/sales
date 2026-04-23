@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origem__c</fullName>
+    <label>Origem</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ajuste recibo</fullName>
+                <default>false</default>
+                <label>Ajuste recibo</label>
+            </value>
+            <value>
+                <fullName>Cobrança</fullName>
+                <default>false</default>
+                <label>Cobrança</label>
+            </value>
+            <value>
+                <fullName>Concessionária</fullName>
+                <default>false</default>
+                <label>Concessionária</label>
+            </value>
+            <value>
+                <fullName>Conta Prevista/Efetiva</fullName>
+                <default>false</default>
+                <label>Conta Prevista/Efetiva</label>
+            </value>
+            <value>
+                <fullName>Contrato</fullName>
+                <default>false</default>
+                <label>Contrato</label>
+            </value>
+            <value>
+                <fullName>Contrato/Seguro</fullName>
+                <default>false</default>
+                <label>Contrato/Seguro</label>
+            </value>
+            <value>
+                <fullName>Contrato/Seguro Fiança</fullName>
+                <default>false</default>
+                <label>Contrato/Seguro Fiança</label>
+            </value>
+            <value>
+                <fullName>Contrato seguro conteúdo</fullName>
+                <default>false</default>
+                <label>Contrato seguro conteúdo</label>
+            </value>
+            <value>
+                <fullName>Contrato seguro perda de renda</fullName>
+                <default>false</default>
+                <label>Contrato seguro perda de renda</label>
+            </value>
+            <value>
+                <fullName>Conversão</fullName>
+                <default>false</default>
+                <label>Conversão</label>
+            </value>
+            <value>
+                <fullName>Diferença</fullName>
+                <default>false</default>
+                <label>Diferença</label>
+            </value>
+            <value>
+                <fullName>Encargo/Integrada</fullName>
+                <default>false</default>
+                <label>Encargo/Integrada</label>
+            </value>
+            <value>
+                <fullName>Encargos</fullName>
+                <default>false</default>
+                <label>Encargos</label>
+            </value>
+            <value>
+                <fullName>Informado</fullName>
+                <default>false</default>
+                <label>Informado</label>
+            </value>
+            <value>
+                <fullName>Integração condomínio</fullName>
+                <default>false</default>
+                <label>Integração condomínio</label>
+            </value>
+            <value>
+                <fullName>IPTU Imóvel</fullName>
+                <default>false</default>
+                <label>IPTU Imóvel</label>
+            </value>
+            <value>
+                <fullName>Lançamento locador</fullName>
+                <default>false</default>
+                <label>Lançamento locador</label>
+            </value>
+            <value>
+                <fullName>Lançamento locatário</fullName>
+                <default>false</default>
+                <label>Lançamento locatário</label>
+            </value>
+            <value>
+                <fullName>Renegociação</fullName>
+                <default>false</default>
+                <label>Renegociação</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

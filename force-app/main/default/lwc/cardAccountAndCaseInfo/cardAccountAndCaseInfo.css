@@ -1,0 +1,84 @@
+.foto {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper-rounded {
+    border: 1px solid #d8dde6;
+    border-radius: 0.75rem;
+    padding: 1rem 1rem 1rem 1rem;
+    background: white;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;    
+}
+
+lightning-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.badge-accounttype {
+    display: inline-block;
+    padding: 2px 10px;
+    color: #1b96ff; 
+    border: 1px solid #1b96ff;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    /*background-color: rgba(27, 150, 255, 0.05);*/
+}
+
+.badge-colored {
+    display: inline-block;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* vermelho: crítico */
+.badge-colored-red {
+    color: red;
+    border: 1px solid red;
+}
+
+/* laranja - alto */
+.badge-colored-orange {
+    color: #ff8c00;
+    border: 1px solid #ff8c00;
+}
+
+/* amarelo - médio */
+.badge-colored-yellow {
+    color: #dcaf0d;
+    border: 1px solid #dcaf0d;
+}
+
+/* verde - baixo*/
+.badge-colored-green {
+    color: #2e844a;
+    border: 1px solid #2e844a;
+}
+
+.badge-colored-default {
+    color: #444;
+    border: 1px solid #ddd;
+}
+
+.card-no-minheight {
+    min-height: 0;
+}
+
+@media (max-width: 420px) {
+    .slds-p-around_medium {
+        padding: 0.5rem !important;
+    }
+    .foto {
+        max-width: 90px;
+    }
+}

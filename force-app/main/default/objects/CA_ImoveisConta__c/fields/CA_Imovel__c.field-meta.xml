@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_Imovel__c</fullName>
+    <label>Imóvel</label>
+    <referenceTo>CA_Imovel__c</referenceTo>
+    <relationshipLabel>Conta dos Imoveis</relationshipLabel>
+    <relationshipName>ContaDosImoveis</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

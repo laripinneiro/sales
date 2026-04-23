@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_ImoveisConta__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Imóveis da Conta</label>
+    <referenceTo>CA_ImoveisConta__c</referenceTo>
+    <relationshipLabel>Sessões do Messaging</relationshipLabel>
+    <relationshipName>Sess_es_do_Messaging</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

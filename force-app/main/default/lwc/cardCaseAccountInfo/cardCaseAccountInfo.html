@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Informações da Conta" icon-name="standard:account">
+        <template if:true={account}>
+            <div class="slds-p-around_medium slds-grid slds-grid_vertical-align-center">
+               <template if:true={ownerPhotoUrl}>
+                    <div class="slds-m-right_medium">
+                        <img src={ownerPhotoUrl} alt="Foto da conta" class="foto" />
+                    </div>
+                </template>
+
+                <div class="slds-grid slds-grid_vertical slds-wrap">
+                    <div class="slds-text-heading_small">
+                        <span class="slds-text-link" onclick={openAccountTab}>
+                            {account.Name}
+                        </span>
+                    </div>
+
+                    <div class="slds-text-body_small slds-text-color_weak">
+                        {account.CA_TipoConta__c}
+                    </div>                
+
+                    <div class="slds-m-top_small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon icon-name="utility:call" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                        <span class={italicPhoneClass}>{displayPhone}</span>
+                    </div>
+
+                    <div class="slds-m-top_xx-small slds-grid slds-grid_vertical-align-center">
+                        <lightning-icon icon-name="utility:email" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                        <span>{account.CA_Email__c}</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template if:false={account}>
+            <p class="slds-p-around_medium slds-text-color_weak">
+                Nenhuma conta relacionada.
+            </p>
+        </template>
+
+    </lightning-card>
+</template>

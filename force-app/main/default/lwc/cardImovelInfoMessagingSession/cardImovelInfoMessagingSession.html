@@ -1,0 +1,116 @@
+<template>
+    <lightning-card title="Informações do Imóvel" icon-name="custom:custom5">
+        
+        <template if:true={isLoading}>
+            <div class="slds-p-around_medium">
+                <lightning-spinner alternative-text="Carregando" size="small"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:false={isLoading}>
+
+            <template if:true={hasCase}>
+                
+                <template if:true={isView}>
+                    <div class="slds-p-horizontal_small slds-p-bottom_small">
+                        <lightning-record-view-form record-id={caseId} object-api-name="Case">
+                            <div class="slds-border_bottom slds-p-vertical_xx-small">
+                                <div class="slds-grid slds-wrap slds-align-center">
+                                    <div class="slds-col slds-size_11-of-12 slds-p-right_xx-small">
+                                        <lightning-output-field field-name="CA_Imovel__c"></lightning-output-field>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-12 slds-text-align_right">
+                                        <lightning-button-icon icon-name="utility:edit" variant="bare" alternative-text="Editar" title="Editar" onclick={handleEdit}></lightning-button-icon>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-border_bottom slds-p-vertical_xx-small">
+                                <lightning-output-field field-name="IM_Tipologia_do_imovel__c"></lightning-output-field>
+                            </div>
+                            <div class="slds-border_bottom slds-p-vertical_xx-small">
+                                <div class="slds-m-top_xx-small">
+                                    <lightning-output-field field-name="IM_situacao_do_imovel__c"></lightning-output-field>
+                                </div>
+                            </div>                                                
+                        </lightning-record-view-form>
+                        <template if:true={imovelOwnerId}>
+                            <lightning-record-view-form record-id={imovelOwnerId} object-api-name="Account">
+                                
+                                <div class="slds-border_bottom slds-p-vertical_xx-small">
+                                    <div class="slds-m-top_xx-small">
+                                        <lightning-output-field field-name="CA_GestorContaAlugueis__c">
+                                        </lightning-output-field>
+                                    </div>
+                                </div>
+
+                            </lightning-record-view-form>
+                        </template>
+                    </div>
+                </template>
+
+                <template if:true={isEdit}>
+                    <div class="slds-p-horizontal_small slds-p-bottom_small">
+                        <lightning-record-edit-form object-api-name="Case" record-id={caseId} onsuccess={handleSuccess} onerror={handleError}>
+                            <div class="slds-border_bottom slds-p-vertical_x-small">
+                                <lightning-input-field field-name="CA_Imovel__c"></lightning-input-field>
+                            </div>
+                            <div class="slds-border_bottom slds-p-vertical_x-small">
+                                <lightning-output-field field-name="IM_Tipologia_do_imovel__c"></lightning-output-field>
+                            </div>
+                            <div class="slds-border_bottom slds-p-vertical_x-small">
+                                <lightning-output-field field-name="IM_situacao_do_imovel__c"></lightning-output-field>
+                            </div>
+                            <div class="slds-p-top_small slds-text-align_right footer-actions">
+                                <lightning-button variant="neutral" label="Cancel" onclick={handleCancel}></lightning-button>
+                                <lightning-button variant="brand" type="submit" label="Save" class="slds-m-left_small"></lightning-button>
+                            </div>
+                        </lightning-record-edit-form>
+                    </div>
+                </template>
+            </template>
+
+            <template if:true={hasImovelOnly}>
+                
+                <template if:true={isView}>
+                    <div class="slds-p-horizontal_small slds-p-bottom_small">
+                        
+                        <lightning-record-view-form record-id={recordId} object-api-name="MessagingSession">
+                            <div class="slds-border_bottom slds-p-vertical_xx-small">
+                                <div class="slds-grid slds-wrap slds-align-center">
+                                    <div class="slds-col slds-size_11-of-12 slds-p-right_xx-small">
+                                        <lightning-output-field field-name="CA_Imovel__c"></lightning-output-field>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-12 slds-text-align_right">
+                                        <lightning-button-icon icon-name="utility:edit" variant="bare" alternative-text="Editar" title="Editar" onclick={handleEdit}></lightning-button-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </lightning-record-view-form>                        
+                    </div>
+                </template>
+
+                <template if:true={isEdit}>
+                    <div class="slds-p-horizontal_small slds-p-bottom_small">
+                        <lightning-record-edit-form object-api-name="MessagingSession" record-id={recordId} onsuccess={handleSuccess} onerror={handleError}>
+                            <div class="slds-border_bottom slds-p-vertical_x-small">
+                                <lightning-input-field field-name="CA_Imovel__c"></lightning-input-field>
+                            </div>
+                            <div class="slds-p-top_small slds-text-align_right footer-actions">
+                                <lightning-button variant="neutral" label="Cancelar" onclick={handleCancel}></lightning-button>
+                                <lightning-button variant="brand" type="submit" label="Salvar" class="slds-m-left_small"></lightning-button>
+                            </div>
+                        </lightning-record-edit-form>
+                    </div>
+                </template>
+
+            </template>
+
+            <template if:true={hasNoRecords}>
+                <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+                    <p>Não há Caso nem Imóvel vinculado a esta sessão.</p>
+                </div>
+            </template>
+
+        </template>
+    </lightning-card>
+</template>

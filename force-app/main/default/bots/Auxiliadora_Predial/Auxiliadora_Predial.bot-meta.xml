@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>false</agentDSLEnabled>
+    <botMlDomain>
+        <label>Auxiliadora Predial</label>
+        <mlIntents>
+            <developerName>Atualiza_Caso_Sem_Imoveis</developerName>
+            <label>Cria Caso Sem Imoveis</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Confused</developerName>
+            <label>Confuso</label>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>oi</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>o</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Conta_Encontrada</developerName>
+            <label>Conta Encontrada</label>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sim, vamos lá.</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Conta_Nao_Encontrada</developerName>
+            <label>Conta Nao Encontrada</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Cria_Caso_Nao_Recebi_Meu_Aluguel</developerName>
+            <label>Cria Caso Não Recebi Meu Aluguel</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Desocupa_o_e_Vistoria_Proprietario</developerName>
+            <label>D &amp; V(Prop)</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Informacoes_sobre_contrato</developerName>
+            <label>MeuCtrt - Informações sobre contrato</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Intent_Falar_com_atendente</developerName>
+            <label>[Intent] Falar com atendente</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Rich_Content_End_Chat</developerName>
+            <label>Encerrar bate-papo</label>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Sair</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Fechar</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Tchau</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>Encerrar</utterance>
+            </mlIntentUtterances>
+            <mlIntentUtterances>
+                <language>pt_BR</language>
+                <utterance>quit</utterance>
+            </mlIntentUtterances>
+        </mlIntents>
+        <mlIntents>
+            <developerName>X2_via_do_Boleto</developerName>
+            <label>2ª via do Boleto</label>
+        </mlIntents>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Agendar_vistoria_agora_ou_depois</developerName>
+            <extractionType>Value</extractionType>
+            <label>Agendar vistoria agora ou depois</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Agendar vistoria agora</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Agendar vistoria depois</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>AindaNaoCliente</developerName>
+            <extractionType>Value</extractionType>
+            <label>AindaNaoCliente</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Quero alugar</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Quero anunciar</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Falar com Condomínios</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Falar com Vendas</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Alteracao_de_dados_bancarios</developerName>
+            <extractionType>Value</extractionType>
+            <label>Alteração de dados bancários</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Auxiliadora Digital</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>CA_DesocupacaoEVistoriaInquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Desocupação e Vistoria Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Informações sobre a desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Aviso de desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Devoluções de chaves</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>5</terms>
+                </synonymGroups>
+                <value>Negociar desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>6</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>CasoExistenteNovo</developerName>
+            <extractionType>Value</extractionType>
+            <label>CasoExistenteNovo</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sim</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>ClienteOuNao</developerName>
+            <extractionType>Value</extractionType>
+            <label>ClienteOuNao</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sou cliente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não sou cliente</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Comprovantes_de_Pagamento_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Comprovantes de Pagamento Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Mensal</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Período maior</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Contrato_nao_finalizado_o_que_deseja_fazer</developerName>
+            <extractionType>Value</extractionType>
+            <label>Contrato não finalizado: o que deseja fazer?</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Quero uma simulação da multa</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Quero uma 2ª via do meu contrato</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Quero solicitar a desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Não vou desocupar agora</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>CPFCNPJNaoConfere</developerName>
+            <extractionType>Value</extractionType>
+            <label>CPFCNPJNaoConfere</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Digitar novamente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Encerrar</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Debito_em_Conta_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Débito em Conta Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Cadastrar</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Excluir</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Deseja_iniciar_o_processo_de_desocupa_o</developerName>
+            <extractionType>Value</extractionType>
+            <label>Deseja iniciar o processo de desocupação</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sim, solicitar a desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não vou desocupar agora</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Desocupacao_e_Vistoria_Proprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>Desocupação e Vistoria Proprietario</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Informações sobre a desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Solicitar a desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Vistoria de saída</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Desocupar_antes_do_fim_do_contrato</developerName>
+            <extractionType>Value</extractionType>
+            <label>Deseja fazer isso?</label>
+            <mlSlotClassValues>
+                <value>Sim, por favor</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Não, obrigado(a)</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Extrato</developerName>
+            <extractionType>Value</extractionType>
+            <label>Extrato</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Demonstrativo</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Tirar dúvidas</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Informe_de_Rendimentos_DIMOB</developerName>
+            <extractionType>Value</extractionType>
+            <label>Informe de Rendimentos/DIMOB</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Menu Anterior</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Dúvida ou Ajuste</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Solicitar Informe</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Inquilino_ou_Proprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>Inquilino ou Proprietario</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sou cliente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não sou cliente</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Manutencao_e_Reparos_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Manutenção e Reparos Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Preciso de um reparo no imóvel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Status de uma manutenção</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Solicitação de reembolso</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Assistência 24h</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>5</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Manutencao_e_Reparos_Proprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>Manutenção e Reparos Proprietario</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Status de manutenção</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Dúvida sobre responsabilidade</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Informar necessidade de manutenção</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>MenuInquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>MenuInquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Pagamentos e Financeiro</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Manutenção e Reparos</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Desocupação e Vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Meu Contrato</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>MenuProprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>Menu proprietario</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Pagamentos e Financeiro</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Manutenção e Reparos</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Desocupação e Vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Meu Contrato</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Motivo_da_desocupa_o_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Motivo da desocupação (Inquilino)</label>
+            <mlSlotClassValues>
+                <value>Financeiro</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Estrutura no imóvel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Manutenção</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Mudança</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Imóvel Vendido</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Saúde</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Fechei meu negócio</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Comprei um imóvel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Prefiro não informar</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Nao_Identificado</developerName>
+            <extractionType>Value</extractionType>
+            <label>Nao Identificado</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Auxiliadora Digital</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com Atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Central de Ajuda</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Negociacao_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Negociação Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Valor do Aluguel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Melhoria no Imóvel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Condições de Desocupação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>O_que_deseja_fazer_agora</developerName>
+            <extractionType>Value</extractionType>
+            <label>O que deseja fazer agora?</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Encerrar atendimento</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>OqueFazerAgora</developerName>
+            <extractionType>Value</extractionType>
+            <label>OqueFazerAgora</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Auxiliadora Digital</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Central de Ajuda</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Outro_Assunto</developerName>
+            <extractionType>Value</extractionType>
+            <label>Outro Assunto</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sim</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Pagamentos_e_Financeiro_Inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Pagamentos e Financeiro Inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>2ª via do Boleto</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Dúvida de lançamento</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Comprovantes</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Débito em Conta</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>5</terms>
+                </synonymGroups>
+                <value>Negociação</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>6</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>PagamentosFinanceiroProprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>PagamentosFinanceiroProprietario</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Extrato</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Dados bancários</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>IR/DIMOB</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Não recebi meu aluguel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>5</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Preciso_de_um_reparo_no_imovel_inquilino</developerName>
+            <extractionType>Value</extractionType>
+            <label>Preciso de um reparo no imóvel inquilino</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Afeta só meu imóvel</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Afeta outros também</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>ProsseguirEncerrar</developerName>
+            <extractionType>Value</extractionType>
+            <label>ProsseguirEncerrar</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Receber_demonstrativo_do_extrato</developerName>
+            <extractionType>Value</extractionType>
+            <label>Receber demonstrativo do extrato</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Auxiliadora Digital</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Receber_Informe_de_Rendimentos</developerName>
+            <extractionType>Value</extractionType>
+            <label>Receber Informe de Rendimentos</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Auxiliadora Digital</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>resultadoKnowledge</developerName>
+            <extractionType>Value</extractionType>
+            <label>resultadoKnowledge</label>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>UnicoCaso</developerName>
+            <extractionType>Value</extractionType>
+            <label>UnicoCaso</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Falar com Atendente</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Aguardar resolução</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>VamosCome_ar</developerName>
+            <extractionType>Value</extractionType>
+            <label>VamosComecar</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Sim, vamos lá.</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Não sou esta pessoa</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Vistoria_D_V_inqui</developerName>
+            <extractionType>Value</extractionType>
+            <label>Vistoria - D &amp; V (inqui)</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Agendar vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Cancelar vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>3</terms>
+                </synonymGroups>
+                <value>Contestar laudo</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>4</terms>
+                </synonymGroups>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>Vistoria_de_sa_da_Proprietario</developerName>
+            <extractionType>Value</extractionType>
+            <label>Vistoria de saída (Proprietário)</label>
+            <mlSlotClassValues>
+                <value>Saber o resultado da vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Saber a data da vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Dúvida sobre relatório de vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Quero participar da vistoria</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <value>Voltar ao menu anterior</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>VoltarOuFalar</developerName>
+            <extractionType>Value</extractionType>
+            <label>VoltarOuFalar</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>1</terms>
+                </synonymGroups>
+                <value>Ver menu inicial</value>
+            </mlSlotClassValues>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>pt_BR</languages>
+                    <terms>2</terms>
+                </synonymGroups>
+                <value>Falar com atendente</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>X2a_via_do_contrato_D_V_inqui</developerName>
+            <extractionType>Value</extractionType>
+            <label>2a via do contrato - D &amp; V (inqui)</label>
+        </mlSlotClasses>
+        <name>Auxiliadora_Predial_Bot_Copy</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <botUser>suporte02@codeart.auxiliadora</botUser>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.ContactId</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingEndUser ContactId</description>
+        <developerName>ContactId</developerName>
+        <includeInPrompt>false</includeInPrompt>
+        <label>ID do Contato</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>MessagingEndUser</SObjectType>
+            <fieldName>MessagingEndUser.Id</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.MessagingEndUserId</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingEndUser Id</description>
+        <developerName>EndUserId</developerName>
+        <includeInPrompt>true</includeInPrompt>
+        <label>ID de usuário final</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>EmbeddedMessaging</messageType>
+        </contextVariableMappings>
+        <contextVariableMappings>
+            <SObjectType>MessagingSession</SObjectType>
+            <fieldName>MessagingSession.Id</fieldName>
+            <messageType>WhatsApp</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <description>This variable may also be referred to as MessagingSession Id</description>
+        <developerName>RoutableId</developerName>
+        <includeInPrompt>true</includeInPrompt>
+        <label>ID roteável</label>
+    </contextVariables>
+    <defaultOutboundFlow>CA_RotearAuxiliadoraPredial</defaultOutboundFlow>
+    <description>Versão 3: versão estável | Versão 4: cópia da 2 | Versão 5: cópia da 3, início da P2...</description>
+    <label>Auxiliadora Predial</label>
+    <logPrivateConversationData>true</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>Bot</type>
+</Bot>

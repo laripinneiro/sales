@@ -1,0 +1,39 @@
+<template>
+    <lightning-card>
+        <div class="case-highlights-container">
+            <div class="title-section">
+                <div class="title-wrapper">
+                    <lightning-icon class="case-icon" icon-name="standard:case" size="medium"></lightning-icon>
+                    <h1 class="case-title">{titleToDisplay}</h1>
+                </div>
+            </div>
+            
+            <div class="case-number-section">
+                <span class="case-number-label">{caseNumberLabel}</span>
+                <span class="case-number-value">{caseNumberValue}</span>
+            </div>
+
+            <template if:false={errorMessage}>
+                <!--
+                <div class="divider"></div>
+                -->
+                <div class="button-section">
+                    <lightning-button 
+                        class="create-button"
+                        variant="outline-brand"
+                        label="Criar Caso"
+                        onclick={handleCreateCase}
+                        disabled={isLoading}>
+                    </lightning-button>
+                </div>
+            </template>
+            
+            <template if:true={errorMessage}>
+                <div class="error-message">
+                    <lightning-icon icon-name="utility:error" size="small"></lightning-icon>
+                    <span>{errorMessage}</span>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

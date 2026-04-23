@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_TodasApolices</fullName>
+    <columns>NAME</columns>
+    <columns>CA_TipoApolice__c</columns>
+    <columns>CA_Situacao__c</columns>
+    <columns>CA_Seguradora__c</columns>
+    <columns>CA_ValorSegurado__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Todas Apólices</label>
+</ListView>

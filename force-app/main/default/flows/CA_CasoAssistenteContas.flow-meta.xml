@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>CA_VerificarEmailPertenceConta</name>
+        <label>Verificar se o E-mail pertence a uma Conta</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>CA_AtualizarCaseOwnerFilaCentralAlugueis</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Não achou Email</defaultConnectorLabel>
+        <rules>
+            <name>CA_AchouId</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>CA_ObterEmailContaAssistente.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CA_AtualizarCasoContaVinculado</targetReference>
+            </connector>
+            <label>Achou Email</label>
+        </rules>
+    </decisions>
+    <description>https://codeartsolutions.atlassian.net/browse/AP-165
+
+Cenário Complexo – Owner baseado no remetente
+Criar Flow (After Save, objeto Case) com lógica condicional:
+
+Verificar se o remetente (campo SuppliedEmail) pertence a uma Conta existente no Salesforce.
+
+Se SIM → definir Owner do Case = Assistente de Contas vinculado à Conta (campo customizado na Conta).
+
+Se NÃO → definir Owner = Fila Central Aluguéis.
+
+🔧 Observação: Necessário mapear campo de relacionamento Conta → Assistente de Contas para atribuição automática.</description>
+    <environments>Default</environments>
+    <interviewLabel>[Caso] - Assistente de Contas {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Caso] - Assistente de Contas</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>CA_ObterEmailContaAssistente</name>
+        <label>Obter Email Conta Assistente</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CA_VerificarEmailPertenceConta</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CA_Email__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.SuppliedEmail</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>CA_ObterFilasCentralAlugueis</name>
+        <label>Obter Fila Central Aluguéis</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>CA_ObterEmailContaAssistente</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Central Aluguéis</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>CA_AtualizarCaseOwnerFilaCentralAlugueis</name>
+        <label>Atualizar case Owner Fila Central Aluguéis</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CA_Fila__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CA_ObterFilasCentralAlugueis.Name</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CA_Fila__c</field>
+            <value>
+                <stringValue>Central Aluguéis</stringValue>
+            </value>
+        </inputAssignments>
+        <object>MessagingSession</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_AtualizarCasoContaVinculado</name>
+        <label>Atualizar Caso Com Conta Vinculado</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>CA_AtualizarOwner</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>CA_ObterEmailContaAssistente.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>CA_AtualizarOwner</name>
+        <label>Atualizar Owner</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>CA_ObterEmailContaAssistente.OwnerId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CA_Fila__c</field>
+            <value>
+                <stringValue>Central Aluguéis</stringValue>
+            </value>
+        </inputAssignments>
+        <object>MessagingSession</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>CA_ObterFilasCentralAlugueis</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Origin</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Email</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>varIdUserOwnerCaso</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

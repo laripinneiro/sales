@@ -1,0 +1,190 @@
+<template>
+    <div class="slds-grid slds-gutters">
+
+        <!-- ACCOUNT -->
+        <div class="slds-col slds-size_1-of-2">
+            <div class="wrapper-rounded">
+                <lightning-card title="Informações da Conta" icon-name="standard:account">
+
+                    <template if:true={account}>
+                        <div class="slds-p-around_medium">
+
+                            <div class="slds-grid slds-gutters slds-grid_vertical-align-center">
+
+                                <!-- foto -->
+                                <div class="slds-m-right_medium">
+                                    <template if:true={ownerPhotoUrl}>
+                                        <img src={ownerPhotoUrl} class="foto" alt="Foto" />
+                                    </template>
+                                </div>
+
+                                <!-- nome e tipo -->
+                                <div class="slds-col slds-size_2-of-3">
+                                    <div class="slds-text-heading_small">
+                                        <span class="slds-text-link" onclick={openAccountTab}>
+                                            {account.Name}
+                                        </span>
+                                    </div>
+
+                                    <div>{account.BillingCity}</div>
+
+                                    <div class="slds-m-top_xx-small">
+                                        <span class="badge-accounttype">
+                                            {account.CA_TipoConta__c}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- telefone e email -->
+                            <div class="slds-m-top_small">
+                                <div class="slds-grid slds-m-bottom_x-small">
+                                    <lightning-icon
+                                        icon-name="utility:call"
+                                        size="x-small"
+                                        class="slds-m-right_x-small">
+                                    </lightning-icon>
+                                    <span>{displayPhone}</span>
+                                </div>
+
+                                <div class="slds-grid">
+                                    <lightning-icon
+                                        icon-name="utility:email"
+                                        size="x-small"
+                                        class="slds-m-right_x-small">
+                                    </lightning-icon>
+                                    <span>{account.CA_Email__c}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </template>
+
+                    <template if:false={account}>
+                        <p class="slds-p-around_medium slds-text-color_weak">
+                            Nenhuma conta relacionada.
+                        </p>
+                    </template>
+
+                </lightning-card>
+            </div>
+        </div>
+
+        <!-- CASE -->
+        <div class="slds-col slds-size_1-of-2">
+            <div class="wrapper-rounded">
+                <lightning-card title="Informações do Caso" icon-name="standard:case">
+
+                    <template if:true={caseData}>
+                        <div slot="actions" if:false={isEditing}>
+                            <lightning-button
+                                variant="neutral"
+                                label="Editar"
+                                onclick={handleEdit}>
+                            </lightning-button>
+                        </div>
+                    </template>
+
+                    <template if:true={caseData}>
+                        <div class="slds-p-around_medium">
+
+                            <p>
+                                <b>Número do Caso:</b>
+                                <span class="slds-text-link" onclick={openCaseTab}>
+                                    {caseData.CaseNumber}
+                                </span>
+                            </p>
+
+                            <!-- VIEW MODE -->
+                            <template if:false={isEditing}>
+                                <p><b>Assunto:</b> {caseData.Subject}</p>
+                                <p><b>Status:</b> <span class={statusClass}>{caseData.Status}</span></p>
+                                <p><b>Prioridade:</b> <span class={priorityClass}>{caseData.Priority}</span></p>
+                                <p><b>Tipo:</b> {caseData.Type}</p>
+                                <p><b>Origem:</b> {caseData.Origin}</p>
+
+                                <!-- PROTOCOLO -->
+                                <template if:true={caseData.Numero_de_Protocolo__c}>
+                                    <p>
+                                        <b>Número do Protocolo:</b>
+                                        <span class="slds-text-link" onclick={openProtocoloTab}>
+                                            {caseData.Numero_de_Protocolo__c}
+                                        </span>
+                                    </p>
+                                </template>
+                            </template>
+
+                            <!-- EDIT MODE -->
+                            <template if:true={isEditing}>
+
+                                <lightning-input
+                                    data-field="Subject"
+                                    label="Assunto"
+                                    value={caseData.Subject}>
+                                </lightning-input>
+
+                                <lightning-combobox
+                                    data-field="Status"
+                                    label="Status"
+                                    value={caseData.Status}
+                                    options={statusOptions}>
+                                </lightning-combobox>
+
+                                <lightning-combobox
+                                    data-field="Priority"
+                                    label="Prioridade"
+                                    value={caseData.Priority}
+                                    options={priorityOptions}>
+                                </lightning-combobox>
+
+                                <lightning-combobox
+                                    data-field="Type"
+                                    label="Tipo"
+                                    value={caseData.Type}
+                                    options={typeOptions}>
+                                </lightning-combobox>
+
+                                <lightning-combobox
+                                    data-field="Origin"
+                                    label="Origem"
+                                    value={caseData.Origin}
+                                    options={originOptions}>
+                                </lightning-combobox>
+
+                                <lightning-input
+                                    data-field="Numero_de_Protocolo__c"
+                                    label="Número do Protocolo"
+                                    value={caseData.Numero_de_Protocolo__c}>
+                                </lightning-input>
+                                
+                                <div class="slds-m-top_small">
+                                    <lightning-button
+                                        variant="brand"
+                                        label="Salvar"
+                                        onclick={handleSave}>
+                                    </lightning-button>
+                                    <lightning-button
+                                        variant="neutral"
+                                        class="slds-m-left_small"
+                                        label="Cancelar"
+                                        onclick={handleCancel}>
+                                    </lightning-button>
+                                </div>
+
+                            </template>
+
+                        </div>
+                    </template>
+
+                    <template if:false={caseData}>
+                        <p class="slds-p-around_medium slds-text-color_weak">
+                            Nenhum caso relacionado a este atendimento.
+                        </p>
+                    </template>
+
+                </lightning-card>
+            </div>
+        </div>
+
+    </div>
+</template>

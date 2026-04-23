@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Add_Conferencia</name>
+        <label>Add Conferencia</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>CPFConferido</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Assignment_2</name>
+        <label>Assignment 2</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>CPFCNPJrecebido</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>CPFCNPJnormalizado</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>CPF_CNPJ_normalizado</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Confere_CPF_CNPJ_da_Conta</name>
+        <label>Confere CPF/CNPJ da Conta</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Não Confere</defaultConnectorLabel>
+        <rules>
+            <name>Confere</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Obter_Conta.CA_CNPJ__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CPFCNPJnormalizado</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obter_Conta.CA_CPF__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CPFCNPJnormalizado</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Add_Conferencia</targetReference>
+            </connector>
+            <label>Confere</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CPF_CNPJ_normalizado</name>
+        <label>CPF/CNPJ normalizado?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>sim_normalizado</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>CPFCNPJnormalizado_length</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>11.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>CPFCNPJnormalizado_length</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>14.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Confere_CPF_CNPJ_da_Conta</targetReference>
+            </connector>
+            <label>sim, normalizado</label>
+        </rules>
+    </decisions>
+    <description>A partir da v.3: não depende mais da sessão para achar a conta, depende apenas do AccountId</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CincoPrimeirosCNPJ</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    SUBSTITUTE(
+        SUBSTITUTE(
+            SUBSTITUTE(
+                SUBSTITUTE({!Obter_Conta.CA_CNPJ__c}, &quot;.&quot;, &quot;&quot;),
+            &quot;-&quot;, &quot;&quot;),
+        &quot;/&quot;, &quot;&quot;),
+    &quot; &quot;, &quot;&quot;),
+5)</expression>
+    </formulas>
+    <formulas>
+        <name>CincoPrimeirosCPF</name>
+        <dataType>String</dataType>
+        <expression>LEFT(
+    SUBSTITUTE(
+        SUBSTITUTE(
+            SUBSTITUTE(
+                SUBSTITUTE({!Obter_Conta.CA_CPF__c}, &quot;.&quot;, &quot;&quot;),
+            &quot;-&quot;, &quot;&quot;),
+        &quot;/&quot;, &quot;&quot;),
+    &quot; &quot;, &quot;&quot;),
+5)</expression>
+    </formulas>
+    <formulas>
+        <name>CPFCNPJnormalizado</name>
+        <dataType>String</dataType>
+        <expression>TRIM(
+  SUBSTITUTE(
+    SUBSTITUTE(
+      SUBSTITUTE(
+        SUBSTITUTE(
+          SUBSTITUTE({!CPFCNPJrecebido}, &quot;.&quot;, &quot;&quot;),
+        &quot;-&quot;, &quot;&quot;),
+      &quot;/&quot;, &quot;&quot;),
+    &quot; &quot;, &quot;&quot;),
+  &quot; &quot;, &quot;&quot;)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>CPFCNPJnormalizado_length</name>
+        <dataType>Number</dataType>
+        <expression>LEN({!CPFCNPJnormalizado})</expression>
+        <scale>2</scale>
+    </formulas>
+    <interviewLabel>[Bot] Valida CPFCNPJ para Buscar Boletos {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Bot] Valida CPFCNPJ para Buscar Boletos</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Obter_Conta</name>
+        <label>Obter Conta</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assignment_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Obter_Conta</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Recebe os 5 primeiros digitos do CPF ou CNPJ enviado pelo cliente</description>
+        <name>CPFCNPJrecebido</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>CPFConferido</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>IdRoteavel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

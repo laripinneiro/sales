@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>MessagingSession</object> 
+            </objects>
+            <property
+                name="panelTitle"
+                type="String"
+                required="false"
+                label="Título do Painel (Override)"
+                description="Texto que aparecerá maior na parte superior do componente. Se deixar em branco, usará o Nome do Cliente (MessagingEndUserId.Name)."
+                default=""
+            />            
+            <property
+                name="detailFieldLabel"
+                type="String"
+                required="false"
+                label="Label Personalizado para o Detalhe"
+                description="Defina um nome personalizado para o campo de detalhe (Assunto do Caso). Se deixar em branco, usará 'Assunto do Caso' como padrão."
+                default=""
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

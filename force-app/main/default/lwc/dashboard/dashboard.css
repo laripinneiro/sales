@@ -1,0 +1,235 @@
+.dashboard-container {
+    padding: 25px;
+    font-family:  Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.top-section {
+    display: flex;
+    gap: 25px;
+}
+
+.status-card {
+    background: #ffffff;
+    padding: 20px 26px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    width: 260px;
+}
+
+.user-status-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.status-card .label {
+    font-size: 14px;
+    color: black;
+    margin-bottom: 6px;
+}
+
+.status-card .value {
+    font-size: 34px;
+    font-weight: bold;
+    color: #6CA9FF; 
+}
+
+.status-card .value.big {
+    color: #F0B100; 
+}
+
+.status-card .sub {
+    font-size: 13px;
+    color: #8A8A8A;
+    margin-top: 4px;
+}
+
+.star {
+    color: #FFD76B;
+    font-size: 20px;
+    margin-top: -5px;
+}
+
+.metric-card-large {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.metric-card-large p.value {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 6px 0;
+}
+
+.metric-card-large span.label {
+    font-size: 14px;
+    color: #555;
+}
+
+
+.grid-4, .grid-3, .grid-2 {
+    display: grid;
+    gap: 25px;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.metric-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px;
+    text-align: left;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.metric-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+.metric-card:nth-child(1) p { color: #9810FA; } 
+.metric-card:nth-child(2) p { color: #00A63E; } 
+.metric-card:nth-child(3) p { color: #9810FA; } 
+.metric-card:nth-child(4) p { color: #00A63E; } 
+
+.grid-3 .metric-card:nth-child(1) p { color: #00A63E; } 
+.grid-3 .metric-card:nth-child(2) p { color: #00A63E; }
+.grid-3 .metric-card:nth-child(3) p { color: #00A63E; }
+
+.metric-card span {
+    font-size: 14px;
+    color: #8A8A8A;
+}
+
+.chart-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+}
+
+.chart-card p.title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.pie-chart {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.legend-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.legend-item .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+    background-color: #ccc;
+}
+
+.no-data {
+    font-size: 13px;
+    color: #999;
+    font-style: italic;
+}
+
+.performance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
+    border-radius: 3px;
+}
+
+.performance-info .title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 2px;
+}
+
+.performance-info .subtitle {
+    font-size: 12px;
+    color: #6f6f6f;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-buttons button {
+    background: white;
+    border: 1px solid #d8d8d8;
+    padding: 7px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-buttons button:hover {
+    background: #efefef;
+}
+
+.filter-buttons button.active {
+    background: #1B66FF;
+    color: white;
+    border-color: #1B66FF;
+}

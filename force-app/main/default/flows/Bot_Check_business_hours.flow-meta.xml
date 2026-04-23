@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>A variavel confirmaHorarioComercial será enviada ao bot como confirmação</description>
+        <name>Atribui_confirma_o_de_hor_rio_comercial</name>
+        <label>Atribui confirmação de horário comercial</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>confirmaHorarioComercial</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <name>Atribui_o_horario_atual</name>
+        <label>Atribui o horário atual</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>DataHoje</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Est_dentro_do_hor_rio_comercial</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>A variavel confirmaHorarioComercial será enviada ao bot como confirmação</description>
+        <name>Confirma_que_teste</name>
+        <label>Confirma que é teste</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>isTest</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>E_teste</name>
+        <label>Quem executa é adm?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sim_estamos_testando</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Administrador</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Confirma_que_teste</targetReference>
+            </connector>
+            <label>Sim, estamos testando</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Est_dentro_do_hor_rio_comercial</name>
+        <label>Está dentro do horário comercial?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>E_teste</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sim</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>HorarioComercial</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Atribui_confirma_o_de_hor_rio_comercial</targetReference>
+            </connector>
+            <label>Sim</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>DiaSemana</name>
+        <dataType>Number</dataType>
+        <expression>WEEKDAY(DATEVALUE({!DataHoje}))</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>HoraAtual</name>
+        <dataType>Number</dataType>
+        <expression>HOUR( TIMEVALUE( {!DataHoje} - (3/24) ) )</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>HorarioComercial</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+  {!DiaSemana} &gt;= 2,
+  {!DiaSemana} &lt;= 6,
+  {!HoraAtual} &gt;= 09,
+  {!HoraAtual} &lt;= 18
+)</expression>
+    </formulas>
+    <interviewLabel>[Bot] Verifica {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Bot] Check if it is business hour</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Atribui_o_horario_atual</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>confirmaHorarioComercial</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <name>DataHoje</name>
+        <dataType>DateTime</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Flow.CurrentDateTime</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>isTest</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

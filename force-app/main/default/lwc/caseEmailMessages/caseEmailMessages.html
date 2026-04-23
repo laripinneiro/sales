@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Emails do Caso" icon-name="standard:email">
+
+        <template if:true={emails}>
+            <lightning-accordion allow-multiple-sections-open>
+
+                <template for:each={emails} for:item="email">
+                    <lightning-accordion-section
+                        key={email.Id}
+                        name={email.Id}
+                        label={email.Subject}>
+
+                        <div class="slds-m-bottom_small">
+                            <p><strong>De:</strong> {email.FromAddress}</p>
+                            <p><strong>Para:</strong> {email.ToAddress}</p>
+                            <p><strong>Data:</strong> {email.MessageDate}</p>
+                            <p>
+                                <strong>Tipo:</strong>
+                                <lightning-badge label={email.direction}></lightning-badge>
+                            </p>
+                        </div>
+
+                        <div class="email-body slds-box slds-theme_default">
+                            <template if:true={email.HtmlBody}>
+                                <lightning-formatted-rich-text
+                                    value={email.HtmlBody}>
+                                </lightning-formatted-rich-text>
+                            </template>
+
+                            <template if:false={email.HtmlBody}>
+                                <p>{email.TextBody}</p>
+                            </template>
+                        </div>
+
+                    </lightning-accordion-section>
+                </template>
+
+            </lightning-accordion>
+        </template>
+
+        <template if:false={emails}>
+            <div class="slds-p-around_medium slds-text-color_weak">
+                Nenhum email encontrado para este caso.
+            </div>
+        </template>
+
+    </lightning-card>
+</template>

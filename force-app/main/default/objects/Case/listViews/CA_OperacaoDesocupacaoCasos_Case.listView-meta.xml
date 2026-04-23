@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_OperacaoDesocupacaoCasos_Case</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Operação Desocupação Casos</label>
+    <queue>CA_OperacaoDesocupacaoCasos</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

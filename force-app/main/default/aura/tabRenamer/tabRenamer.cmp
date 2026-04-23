@@ -1,0 +1,36 @@
+<aura:component
+    implements="force:hasRecordId,flexipage:availableForAllPageTypes"
+    access="global">
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="sourceType" type="String" default="related" />
+    <aura:attribute name="lookupField" type="String" default="EndUserAccountId" />
+    <aura:attribute name="targetObject" type="String" default="Account" />
+    <aura:attribute name="displayField" type="String" default="Name" />
+    <aura:attribute name="customTabLabel" type="String" default="" />
+    <aura:attribute name="autoRename" type="Boolean" default="true" />
+    
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="simpleRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    <aura:attribute name="targetRecord" type="Object" />
+    <aura:attribute name="targetError" type="String" />
+    
+    <force:recordData
+        aura:id="recordLoader"
+        targetFields="{!v.simpleRecord}"
+        targetError="{!v.recordError}"
+        recordUpdated="{!c.handleRecordUpdated}"
+    />
+    
+    <force:recordData
+        aura:id="targetLoader"
+        targetFields="{!v.targetRecord}"
+        targetError="{!v.targetError}"
+        recordUpdated="{!c.handleTargetUpdated}"
+    />
+    
+    <lightning:workspaceAPI aura:id="workspace" />
+</aura:component>

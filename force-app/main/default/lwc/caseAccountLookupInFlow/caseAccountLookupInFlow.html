@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="Informações do Imóvel" icon-name="custom:custom5">     
+        
+
+        <!-- VIEW MODE -->
+        <template if:true={isView}>
+            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                <lightning-record-view-form record-id={recordId} object-api-name="Case">
+                    <!-- Linha do campo Imóvel e lapis -->
+                    <div class="slds-border_bottom slds-p-vertical_xx-small">
+                        <div class="slds-grid slds-wrap slds-align-center">
+                            
+                            <!-- Coluna do campo -->
+                            <div class="slds-col slds-size_11-of-12 slds-p-right_xx-small">
+                                <lightning-output-field field-name="CA_Imovel__c"></lightning-output-field>
+                            </div>
+
+                            <!-- Coluna do lapis -->
+                            <div class="slds-col slds-size_1-of-12 slds-text-align_right">
+                                <lightning-button-icon 
+                                    icon-name="utility:edit"
+                                    variant="bare"
+                                    alternative-text="Editar"
+                                    title="Editar"
+                                    onclick={handleEdit}>
+                                </lightning-button-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slds-border_bottom slds-p-vertical_xx-small">
+                        <lightning-output-field field-name="IM_Tipologia_do_imovel__c"></lightning-output-field>
+                    </div>
+                </lightning-record-view-form>
+            </div>
+        </template>
+
+        <!-- EDIT MODE -->
+        <template if:true={isEdit}>
+            <div class="slds-p-horizontal_small slds-p-bottom_small">
+                <lightning-record-edit-form
+                    object-api-name="Case"
+                    record-id={recordId}
+                    onsuccess={handleSuccess}
+                    onerror={handleError}>
+
+                    <div class="slds-border_bottom slds-p-vertical_x-small">
+                        <div class="slds-m-top_x-small">
+                            <!-- lookup nativo -->
+                            <lightning-input-field field-name="CA_Imovel__c"></lightning-input-field>
+                        </div>
+                    </div>
+
+                    <div class="slds-border_bottom slds-p-vertical_x-small">
+                        <div class="slds-m-top_x-small">
+                            <!-- field is formula: shows 'calculated upon save' in edit mode -->
+                            <lightning-output-field field-name="IM_Tipologia_do_imovel__c"></lightning-output-field>
+                        </div>
+                    </div>                   
+
+                    <!-- Botões Save / Cancel -->
+                    <div class="slds-p-top_small slds-text-align_right footer-actions">
+                        <lightning-button variant="neutral" label="Cancel" onclick={handleCancel}></lightning-button>
+                        <lightning-button variant="brand" type="submit" label="Save" class="slds-m-left_small"></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </template>
+    </lightning-card>
+</template>

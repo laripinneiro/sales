@@ -1,0 +1,44 @@
+<design:component>
+    <design:attribute
+        name="sourceType"
+        label="Tipo de Fonte"
+        description="Escolha se quer usar um campo do próprio registro ou de um registro relacionado ('direct' para campo do próprio registro, 'related' para campo de um registro relacionado)"
+        default="related"
+        required="true"
+        datasource="direct,related"
+    />
+    <design:attribute
+        name="lookupField"
+        label="Campo de Lookup (para tipo 'related')"
+        description="Nome do campo que referencia o objeto relacionado (ex: EndUserAccountId, ContactId, Account__c)"
+        default="EndUserAccountId"
+        required="false"
+    />
+    <design:attribute
+        name="targetObject"
+        label="Objeto de Destino (para tipo 'related')"
+        description="Nome do objeto relacionado (ex: Account, Contact, Custom_Object__c)"
+        default="Account"
+        required="false"
+    />
+    <design:attribute
+        name="displayField"
+        label="Campo para Exibição"
+        description="Para 'direct': campo do próprio registro. Para 'related': campo do objeto relacionado (ex: Name, Subject, Custom_Field__c)"
+        default="Name"
+        required="true"
+    />
+    <design:attribute
+        name="customTabLabel"
+        label="Nome Fixo da Aba (opcional)"
+        description="Nome fixo para a aba (deixe vazio para usar o campo de exibição automaticamente)"
+        required="false"
+    />
+    <design:attribute
+        name="autoRename"
+        label="Renomear Aba Automaticamente"
+        description="Se deve alterar o nome da aba automaticamente ao carregar"
+        default="true"
+        required="false"
+    />
+</design:component>

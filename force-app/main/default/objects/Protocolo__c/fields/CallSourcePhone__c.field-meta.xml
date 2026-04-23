@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CallSourcePhone__c</fullName>
+    <description>Campo utilizado para receber o telefone que gerou o protocolo, quando ele é criado por ligação pela 55BPX</description>
+    <externalId>false</externalId>
+    <label>Telefone da Ligação</label>
+    <length>15</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

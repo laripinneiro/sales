@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IM_Tipologia_do_imovel__c</fullName>
+    <description>Espelha e exibe o valor do campo CA_Tipologia__c do imóvel</description>
+    <externalId>false</externalId>
+    <formula>CA_Imovel__r.CA_Tipologia__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Exibe a tipologia do imóvel atrelado a este caso</inlineHelpText>
+    <label>Tipologia do imóvel</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Output_Variables</name>
+        <label>Assign Output Variables</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>imovelEnderecoFormatado</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>imovelEnderecoFormula</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DataAssinaturaContrato</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_DataAssinaturaContrato</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DataDeTermino</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_DataDeTermino</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>DataProximoReajuste</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>form_DataProximoReajuste</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Is_ImovelId_Filled</name>
+        <label>Is ImovelId Filled?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Get_ImoveisContratos</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Filled</defaultConnectorLabel>
+        <rules>
+            <name>Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>ImovelId</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Blank</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Is_Locacao_Contract</name>
+        <label>Is &quot;Locação&quot; Contract?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>ImoveisContratos_Loop</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other type</defaultConnectorLabel>
+        <rules>
+            <name>Locacao</name>
+            <conditionLogic>1 AND (2 OR 3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>ImoveisContratos_Loop.CA_Contratos__r.RecordType.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tipo Locação</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ImoveisContratos_Loop.CA_Contratos__r.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ativo</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ImoveisContratos_Loop.CA_Contratos__r.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Activated</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>ImoveisContratos_Loop.CA_Contratos__r.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Ativ_</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Locacao_Contract</targetReference>
+            </connector>
+            <label>Locacão</label>
+        </rules>
+    </decisions>
+    <description>O flow retorna os campos de contrato configurados internamente como variáveis output.
+O contrato será obtido pelo ContractId de entrada. Caso vazio, será obtido pelo AccountId de entrada, onde retornará o último criado que não estiver Inativo.
+OBS.: variáveis estão sendo preenchidas no final nas configurações dos blocos Get
+-
+V2/V3: Quando procurado através de ImovelId, retorna o *CONTRATO DE LOCAÇÃO* ativo do imóvel, não mais o de ADMINISTRAÇÃO
+-
+V4/V5: Busca apenas com o ImovelId, pois ContractId as vezes pegava o contrato de administração vindo do bot
+-
+V8/V9: Retorno das datas em formato correto e retorno do endereço formatado</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>form_DataAssinaturaContrato</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISBLANK({!field_DataAssinaturaContrato}),
+    &quot;*Dado não encontrado&quot;,
+    IF(
+        NOT(REGEX({!field_DataAssinaturaContrato}, &quot;\\d{4}-\\d{2}-\\d{2}&quot;)),
+        {!field_DataAssinaturaContrato},
+        MID({!field_DataAssinaturaContrato}, 9, 2) &amp; &quot;/&quot; &amp; 
+        MID({!field_DataAssinaturaContrato}, 6, 2) &amp; &quot;/&quot; &amp; 
+        LEFT({!field_DataAssinaturaContrato}, 4)
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>form_DataDeTermino</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISBLANK({!field_DataDeTermino}),
+    &quot;*Dado não encontrado&quot;,
+    IF(
+        NOT(REGEX({!field_DataDeTermino}, &quot;\\d{4}-\\d{2}-\\d{2}&quot;)),
+        {!field_DataDeTermino},
+        MID({!field_DataDeTermino}, 9, 2) &amp; &quot;/&quot; &amp; 
+        MID({!field_DataDeTermino}, 6, 2) &amp; &quot;/&quot; &amp; 
+        LEFT({!field_DataDeTermino}, 4)
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>form_DataProximoReajuste</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    ISBLANK({!field_DataProximoReajuste}),
+    &quot;*Dado não encontrado&quot;,
+    IF(
+        NOT(REGEX({!field_DataProximoReajuste}, &quot;\\d{4}-\\d{2}-\\d{2}&quot;)),
+        {!field_DataProximoReajuste},
+        MID({!field_DataProximoReajuste}, 9, 2) &amp; &quot;/&quot; &amp; 
+        MID({!field_DataProximoReajuste}, 6, 2) &amp; &quot;/&quot; &amp; 
+        LEFT({!field_DataProximoReajuste}, 4)
+    )
+)</expression>
+    </formulas>
+    <formulas>
+        <name>imovelEnderecoFormula</name>
+        <dataType>String</dataType>
+        <expression>{!Get_Imovel.CA_Endereco__Street__s} + 
+IF(ISBLANK({!Get_Imovel.CA_NumeroEndereco__c}), &quot;&quot;, &quot;, &quot; + {!Get_Imovel.CA_NumeroEndereco__c}) + 
+IF(ISBLANK({!Get_Imovel.CA_Complemento__c}), &quot;&quot;, &quot; - &quot; + {!Get_Imovel.CA_Complemento__c}) + 
+IF(ISBLANK({!Get_Imovel.CA_Bairro__c}), &quot;&quot;, &quot; - &quot; + {!Get_Imovel.CA_Bairro__c}) + &quot;, &quot; +
+{!Get_Imovel.CA_Endereco__City__s}</expression>
+    </formulas>
+    <interviewLabel>[Bot] {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Bot] Obter Campos do Contrato</label>
+    <loops>
+        <name>ImoveisContratos_Loop</name>
+        <label>ImoveisContratos Loop</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <collectionReference>Get_ImoveisContratos</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_Locacao_Contract</targetReference>
+        </nextValueConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_ImoveisContratos</name>
+        <label>Get ImoveisContratos</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>ImoveisContratos_Loop</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CA_Imovel__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ImovelId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CA_ImoveisContratos__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Imovel</name>
+        <label>Get Imovel</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Output_Variables</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ImovelId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CA_Imovel__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>CA_Endereco__City__s</queriedFields>
+        <queriedFields>CA_Endereco__CountryCode__s</queriedFields>
+        <queriedFields>CA_Endereco__PostalCode__s</queriedFields>
+        <queriedFields>CA_Endereco__StateCode__s</queriedFields>
+        <queriedFields>CA_Endereco__Street__s</queriedFields>
+        <queriedFields>CA_NumeroEndereco__c</queriedFields>
+        <queriedFields>CA_Endereco__c</queriedFields>
+        <queriedFields>CA_Complemento__c</queriedFields>
+        <queriedFields>CA_Bairro__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Locacao_Contract</name>
+        <label>Get Locação Contract</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Record_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ImoveisContratos_Loop.CA_Contratos__r.Id</elementReference>
+            </value>
+        </filters>
+        <object>Contract</object>
+        <outputAssignments>
+            <assignToReference>field_DataAssinaturaContrato</assignToReference>
+            <field>CA_DataAssinaturaContrato__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>field_DataDeTermino</assignToReference>
+            <field>CA_DataFinal__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>field_DataProximoReajuste</assignToReference>
+            <field>CA_DataProximoReajuste__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>PercentualTaxaAdministrativa</assignToReference>
+            <field>CA_PercentualTaxaAdministrativa__c</field>
+        </outputAssignments>
+        <outputAssignments>
+            <assignToReference>RecordTypeId</assignToReference>
+            <field>RecordTypeId</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Record_Type</name>
+        <label>Get Record Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Imovel</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>RecordTypeId</elementReference>
+            </value>
+        </filters>
+        <object>RecordType</object>
+        <outputAssignments>
+            <assignToReference>RecordTypeName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_ImovelId_Filled</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Deprecated</description>
+        <name>AccountId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContractId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ContractRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Contract</objectType>
+    </variables>
+    <variables>
+        <name>DataAssinaturaContrato</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>*Dado não encontrado</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>DataDeTermino</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>*Dado não encontrado</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>DataProximoReajuste</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>*Dado não encontrado</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>field_DataAssinaturaContrato</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>field_DataDeTermino</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>field_DataProximoReajuste</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>imovelEnderecoFormatado</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>endereco_imovel</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ImovelId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>PercentualTaxaAdministrativa</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>*Dado não encontrado</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>RecordTypeId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>RecordTypeName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>*Dado não encontrado</stringValue>
+        </value>
+    </variables>
+</Flow>

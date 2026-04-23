@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_TodosIPTUs</fullName>
+    <columns>NAME</columns>
+    <columns>CA_AnoCompetenciaIPTU__c</columns>
+    <columns>CA_ValorIPTU__c</columns>
+    <columns>CA_ParcelamentoIPTU__c</columns>
+    <columns>CA_ValorParcela__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Todos IPTUs</label>
+</ListView>

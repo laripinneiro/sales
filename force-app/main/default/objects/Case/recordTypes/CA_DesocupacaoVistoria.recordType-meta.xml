@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_DesocupacaoVistoria</fullName>
+    <active>true</active>
+    <businessProcess>Padrão</businessProcess>
+    <compactLayoutAssignment>CA_Padrao</compactLayoutAssignment>
+    <label>Desocupação e Vistoria</label>
+    <picklistValues>
+        <picklist>CA_Motivo__c</picklist>
+        <values>
+            <fullName>Agendamento de vistoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aviso de desocupação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelamento de vistoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelar processo de desocupação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Constestação de vistoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data de vistoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Devolução de chaves</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dúvidas relatório de reparos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informações de desocupação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Participar de vistoria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resultado vistoria</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CA_TipoSolicitante__c</picklist>
+        <values>
+            <fullName>Inquilino</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proprietário</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Presencial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>WhatsApp</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>Complex functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions not clear</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>User didn%27t attend training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Alteração cadastral e contratual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Boleto</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultas Financeiras Gerais</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultas sobre Contrato</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultas sobre Desocupação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consultas sobre Manutenção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Desocupação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Extrato</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IPTU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inadimplência e Repasses</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informações do contrato</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negociação</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitações de Manutenção</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Taxas e seguros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vistoria</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

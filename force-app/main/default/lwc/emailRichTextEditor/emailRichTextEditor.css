@@ -1,0 +1,21 @@
+.editor-container {
+    margin-top: 10px;
+}
+
+.toggle-container {
+    text-align: right;
+    margin-bottom: 8px;
+}
+
+.editor {
+    min-height: 250px;
+}
+
+.html-area {
+    min-height: 250px;
+}
+
+.warning-size-limit{
+    font-style: italic;
+    font-size: smaller;
+}

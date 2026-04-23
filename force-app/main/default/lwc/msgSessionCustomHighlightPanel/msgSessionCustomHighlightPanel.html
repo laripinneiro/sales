@@ -1,0 +1,42 @@
+<template>
+    <div class="lwc-top-adjust">
+    <lightning-card title={titleToDisplay} icon-name="standard:messaging_session" class="session-highlights-container">
+        <template if:true={isCreateCaseButtonVisible}>
+            <div slot="actions">
+                <lightning-button 
+                    label="Criar Novo Caso"
+                    variant="neutral"
+                    onclick={handleCreateCase}
+                    class="big-icon"
+                    size="large"
+                    disabled={isLoading}>
+                </lightning-button>
+            </div>
+        </template>
+
+        <div class="detail-section slds-p-around_small">
+            <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                <span class="detail-label slds-m-right_x-small">{endUserContactLabel}:</span>
+                <span class="detail-value slds-truncate">{endUserContactValue}</span>
+            </div>
+
+            <div class="slds-grid slds-grid_vertical-align-center slds-m-bottom_small">
+                <span class="detail-label slds-m-right_x-small">{detailLabel}:</span>
+                <span class="detail-value slds-truncate">{detailFieldValue}</span>
+            </div>
+
+            <template if:true={errorMessage}>
+                <div class="error-message slds-grid slds-grid_vertical-align-center">
+                    <lightning-icon 
+                        icon-name="utility:error" 
+                        size="small"
+                        class="slds-m-right_x-small">
+                    </lightning-icon>
+
+                    <span>{errorMessage}</span>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    </div>
+</template>

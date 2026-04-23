@@ -1,0 +1,10 @@
+<template>
+    <div>
+        <template if:true={url}>
+            <p> Carregando... </p>
+        </template>
+        <template if:false={url}>
+            <p>Link não fornecido.</p>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,97 @@
+<template>
+
+    <lightning-card title="Informações de Contrato" icon-name="standard:contract">
+        <!-- header com ícone, título e botão -->
+        <div slot="actions">            
+            <lightning-button
+                variant="neutral"
+                label={accessButtonLabel}
+                onclick={handleAccessContract}
+                disabled={isButtonDisabled}
+                title={accessButtonTooltip}
+                class="slds-m-right_x-small"
+            ></lightning-button>
+
+            <template if:true={hasContract}>
+                <lightning-button-icon
+                    icon-name="utility:edit"
+                    variant="bare"
+                    alternative-text="Editar Contrato"
+                    title="Trocar Contrato"
+                    onclick={handleEditContract}
+                ></lightning-button-icon>
+            </template>
+        </div>
+
+        <!-- conteúdo principal -->
+        <div class="content-section slds-p-around_medium">
+            <template if:true={hasContract}>
+                <div class="fields-container">
+                    <!-- coluna esquerda -->
+                    <div class="column left-column">
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_garantiaContratada}</label>
+                            <span class="field-value">{contractData.CA_GarantiaContratada__c}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_diaBaseGarantia}</label>
+                            <span class="field-value">{contractData.CA_DiaBaseGarantia__c}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_valorAluguel}</label>
+                            <span class="field-value">{contractData.CA_ValorAluguel__c}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_valorBaseComissao}</label>
+                            <span class="field-value">{contractData.CA_ValorBaseComissao__c}</span>
+                        </div>
+                    </div>
+
+                    <!-- coluna direita -->
+                    <div class="column right-column">
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_dataInicioContrato}</label>
+                            <span class="field-value">{contractData.CA_DataInicioContrato__c}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_endDate}</label>
+                            <span class="field-value">{contractData.EndDate}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_diaVencimentoBoleto}</label>
+                            <span class="field-value">{contractData.CA_DiaVencimentoBoleto__c}</span>
+                        </div>
+                        <div class="field-group slds-border_bottom">
+                            <label class="field-label">{label_ca_dataProximoReajuste}</label>
+                            <span class="field-value">{contractData.CA_DataProximoReajuste__c}</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template if:false={hasContract}>
+                <div class="slds-p-top_small">                 
+                    <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsuccess={handleContractSelectionSuccess}>
+                        
+                        <div class="slds-grid slds-gutters slds-align-bottom">
+                            <div class="slds-col slds-size_9-of-12">
+                                <lightning-input-field field-name="CA_Contrato__c" variant="label-hidden" placeholder="Selecione um contrato"></lightning-input-field>
+                            </div>
+                            <div class="slds-col slds-size_3-of-12 slds-grid slds-wrap slds-col_bump-left">
+                                <lightning-button variant="brand" type="submit" label="Salvar" class="slds-m-left_x-small"></lightning-button>
+                            </div>
+                        </div>
+
+                    </lightning-record-edit-form>
+                </div>
+            </template>
+        </div>
+
+        <!-- loader -->
+        <template if:true={isLoading}>
+            <div class="loader-overlay">
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Padr_o</fullName>
+    <fields>Name</fields>
+    <fields>CA_Situacao__c</fields>
+    <fields>CA_ValorSegurado__c</fields>
+    <fields>CA_Seguradora__c</fields>
+    <fields>CA_Corretor__c</fields>
+    <fields>CA_DataInicio__c</fields>
+    <fields>CA_DataTermino__c</fields>
+    <label>Padrão</label>
+</CompactLayout>

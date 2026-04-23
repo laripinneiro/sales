@@ -1,0 +1,103 @@
+:host {
+    --slds-c-card-color-background: #ffffff;
+    --slds-c-card-spacing-padding: 0;
+}
+
+
+.case-highlights-container {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.title-section {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.case-icon {
+    color: #e91e63;
+}
+
+.case-title {
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #1b1b1b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.case-number-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+}
+
+.case-number-label {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #3e3e3e;
+    text-transform: none;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 0.05rem;
+}
+
+.case-number-value {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #252525;
+}
+
+/*
+.divider {
+    height: 1px;
+    background-color: #c9c9c9;
+    margin: 0.12rem 0.8rem;
+}
+*/
+
+.button-section {
+    padding: 0.5rem 0.5rem 0.15rem 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.create-button {
+    min-height: 2.25rem;
+    border-radius: 0.25rem;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    color: #c23030;
+    background-color: #fce5e6;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+@media (max-width: 480px) {
+    .case-title {
+        font-size: 1.3125rem;
+    }
+
+    .case-number-label {
+        font-size: 0.9rem;
+    }
+
+    .case-number-section {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .button-section {
+        padding: 0.75rem 0.5rem;
+    }
+}

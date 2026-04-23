@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_CompactLayoutPersonalizado</fullName>
+    <fields>Name</fields>
+    <fields>CA_Tipologia__c</fields>
+    <fields>CA_SituacaoImovel__c</fields>
+    <fields>CA_Condominios__c</fields>
+    <fields>CA_Endereco__c</fields>
+    <fields>CA_Complemento__c</fields>
+    <label>Compact Layout Personalizado</label>
+</CompactLayout>

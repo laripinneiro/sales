@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Email_doProprietario_doImovel_doCaso__c</fullName>
+    <description>Espelha o valor do campo &quot;CA_Email__c&quot; da conta do proprietário do imóvel atrelado a este caso</description>
+    <externalId>false</externalId>
+    <formula>CA_Imovel__r.CA_ProprietarioImovel__r.CA_Email__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Email do Proprietário do Imóvel do Caso</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

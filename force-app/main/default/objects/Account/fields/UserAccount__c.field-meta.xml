@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UserAccount__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Este campo é usado para designar o usuário atrelado a esta conta. Utiliza-se este campo no fluxo de transbordar a sessão de mensagem para o gestor da conta.</description>
+    <inlineHelpText>Este campo é usado para designar o usuário atrelado a esta conta.</inlineHelpText>
+    <label>Usuário da conta</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>UserAccount</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

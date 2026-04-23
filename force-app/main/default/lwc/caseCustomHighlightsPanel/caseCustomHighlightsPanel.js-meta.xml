@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <objects>
+                <object>Case</object>
+            </objects>
+            <property
+                name="caseTitle"
+                type="String"
+                required="false"
+                label="Título do Painel"
+                description="Texto que aparecerá maior na parte superior do componente, como título. Se deixar em branco, pegará do Subject do Case."
+                default=""
+            />
+            <property
+                name="showCreateButton"
+                type="Boolean"
+                required="false"
+                label="Mostrar Botão Criar Caso"
+                description="Define se o botão 'Criar Caso' será exibido no componente."
+                default="true"
+            />
+            <property
+                name="caseNumberFieldLabel"
+                type="String"
+                required="false"
+                label="Label Personalizado para Case Number"
+                description="Defina um nome personalizado para o campo 'Case Number'. Se deixar em branco, usará 'Case Number' como padrão."
+                default=""
+            />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

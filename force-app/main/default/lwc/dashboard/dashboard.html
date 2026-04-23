@@ -1,0 +1,133 @@
+<template>
+    <div class="dashboard-container">
+
+        <div class="top-section">
+            <div class="status-card user-status-card">
+                <div class="status-content">
+                    <p class="label">Meu Status</p>
+                    <p class="value">{userStatus}</p>
+                    <p class="sub">Desde: {statusSince}</p>
+                </div>
+                <template if:true={userPhotoUrl}>
+                    <img src={userPhotoUrl} class="user-photo" alt="Foto do Usuário">
+                </template>
+            </div>
+
+            <!--
+            TODO: Implementar
+            atualmente Nota da CSAT está fixa/hardcoded
+            
+            <div class="status-card">
+                <p class="label">Nota da CSAT</p>
+                <p class="value big">4.7/5.0 </p>
+                <p class="star">★★★★★</p>
+            </div>-->
+            <div class="metric-card-large">
+                 <p class="value">{casesAbertos}</p>
+                 <span class="label">Casos em Aberto</span>
+            </div>
+           </div>
+
+
+
+        <!-- MEU DESEMPENHO -->
+
+
+        <div class="performance-header">
+            <div class="performance-info">
+                <p class="title">Meu desempenho</p>
+
+                <p class="subtitle">
+                    A partir de {startDateFormatted} • Última atualização há {minutosAtualizacao} minutos
+                </p>
+            </div>
+
+            <div class="filter-buttons">
+                <button class={todayClass} value="today" onclick={changeFilter}>Hoje</button>
+                <button class={weekClass} value="week" onclick={changeFilter}>Essa semana</button>
+                <button class={monthClass} value="month" onclick={changeFilter}>Esse mês</button>
+            </div>
+        </div>
+
+
+
+<!-- APÓS MEU DESEMPENHO -->
+
+        <div class="grid-4">
+            <div class="metric-card">
+                <p>{casesCriados}</p><span>Casos Criados</span>
+            </div>
+            <div class="metric-card">
+                <p>{casesAtraso}</p><span>Casos em Atraso</span>
+            </div>
+            <div class="metric-card">
+                <p>{msgsAbertas}</p><span>Mensagens em Aberto</span>
+            </div>
+            <div class="metric-card">
+                <p>{slaViolado}</p><span>SLA Violado</span>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="metric-card">
+                <p>{casesFechados}</p><span>Casos Fechados</span>
+            </div>
+            <div class="metric-card">
+                <p>{tarefasFechadas}</p><span>Tarefas Fechadas</span>
+            </div>
+            <div class="metric-card">
+                <p>{sessoesEncerradas}</p><span>Sessões Encerradas</span>
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <div class="metric-card">
+                <p>{tmaCasos}</p><span>TMA Casos (Tempo Médio de Atendimento)</span>
+            </div>
+            <div class="metric-card">
+                <p>{tmaMensagens}</p><span>TMA Mensagens (Tempo Médio de Atendimento)</span>
+            </div>
+            <div class="metric-card">
+                <p>{tmeAtendimento}</p><span>TME Atendimento (Tempo Médio de Espera)</span>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="chart-card">
+                <p class="title">Tipos de Cliente</p>
+                <div class="chart-container">
+                    <div class="pie-chart" style={clientChartStyle}></div>
+                    <div class="legend-container">
+                        <template for:each={clientChartData} for:item="item">
+                            <div key={item.label} class="legend-item">
+                                <span class="dot" style={item.colorStyle}></span>
+                                <span class="text">{item.label}: {item.value}</span>
+                            </div>
+                        </template>
+                        <template if:false={clientChartData.length}>
+                            <p class="no-data">Sem dados para exibir</p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-card">
+                <p class="title">Tipos de Atendimento</p>
+                <div class="chart-container">
+                    <div class="pie-chart" style={supportChartStyle}></div>
+                    <div class="legend-container">
+                        <template for:each={supportChartData} for:item="item">
+                            <div key={item.label} class="legend-item">
+                                <span class="dot" style={item.colorStyle}></span>
+                                <span class="text">{item.label}: {item.value}</span>
+                            </div>
+                        </template>
+                        <template if:false={supportChartData.length}>
+                            <p class="no-data">Sem dados para exibir</p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>

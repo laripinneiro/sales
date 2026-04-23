@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_CabecalhoBoleto</fullName>
+    <fields>Name</fields>
+    <fields>CA_Situacao__c</fields>
+    <fields>CA_DataVencimento__c</fields>
+    <fields>CA_DataPagamento__c</fields>
+    <fields>CA_ValorTotal__c</fields>
+    <label>Cabeçalho Boleto</label>
+</CompactLayout>

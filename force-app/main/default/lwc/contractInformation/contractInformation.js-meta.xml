@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="filterByRecordType" type="Boolean" label="Filtrar por Nome do Record Type (Tipo Locação)" 
+                default="false" description="Se marcado, exige que o nome do Record Type seja 'Tipo Locação'" />
+            <property name="accessButtonLabel" type="String" label="Label do Botão"
+                default="Acessar Contrato" required="false" />
+            <property name="noContractMessage" type="String" label="Mensagem Sem Contrato"
+                default="Sem contrato de locação ativo" required="false" />
+            <property name="label_ca_garantiaContratada" type="String" label="Label: Garantia Contratada" default="Garantia Contratada" />
+            <property name="label_ca_diaBaseGarantia" type="String" label="Label: Dia Base Garantia" default="Dia Base Garantia" />
+            <property name="label_ca_valorAluguel" type="String" label="Label: Valor Aluguel" default="Valor Aluguel" />
+            <property name="label_ca_valorBaseComissao" type="String" label="Label: Valor Base Comissão" default="Valor Base Comissão" />
+            <property name="label_ca_dataInicioContrato" type="String" label="Label: Data Início Contrato" default="Data Início Contrato" />
+            <property name="label_endDate" type="String" label="Label: Data Fim" default="Data Fim" />
+            <property name="label_ca_diaVencimentoBoleto" type="String" label="Label: Dia Vencimento Boleto" default="Dia Vencimento Boleto" />
+            <property name="label_ca_dataProximoReajuste" type="String" label="Label: Data Próximo Reajuste" default="Data Próximo Reajuste" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

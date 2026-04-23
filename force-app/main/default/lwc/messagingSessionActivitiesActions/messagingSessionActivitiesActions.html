@@ -1,0 +1,37 @@
+<template>
+    <lightning-card>
+        <div class="wrapper-rounded">
+            <!--<div class="slds-m-around_x-small">-->
+
+                <lightning-button
+                    icon-name="utility:email"    
+                    label="Enviar Email"
+                    class="slds-m-left_small"
+                    onclick={handleOpenFlow1}>
+                </lightning-button>
+
+                <lightning-button
+                    icon-name="utility:call"  
+                    label="Registrar Ligação"
+                    class="slds-m-left_small"
+                    onclick={handleOpenFlow2}>
+                </lightning-button>
+
+                <lightning-button
+                    icon-name="utility:attach"    
+                    label="Anexar Arquivos"
+                    class="slds-m-left_small"
+                    onclick={handleOpenFlow3}>
+                </lightning-button>
+            <!--</div>-->
+
+            <template if:true={showFlow}>
+                <div class="slds-m-top_medium slds-grid slds-wrap slds-grid_vertical-align-center slds-grid_align-center">
+                    <lightning-flow
+                        onstatuschange={handleFlowStatusChange}>
+                    </lightning-flow>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

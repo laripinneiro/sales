@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_Motivo__c</fullName>
+    <label>Motivo</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>2ª via de boleto</fullName>
+                <default>false</default>
+                <label>2ª via de boleto</label>
+            </value>
+            <value>
+                <fullName>Comprovantes de pagamentos</fullName>
+                <default>false</default>
+                <label>Comprovantes de pagamentos</label>
+            </value>
+            <value>
+                <fullName>Dúvida sobre lançamentos</fullName>
+                <default>false</default>
+                <label>Dúvida sobre lançamentos</label>
+            </value>
+            <value>
+                <fullName>Dúvidas sobre boleto Final</fullName>
+                <default>false</default>
+                <label>Dúvidas sobre boleto Final</label>
+            </value>
+            <value>
+                <fullName>Cadastrar débito em conta</fullName>
+                <default>false</default>
+                <label>Cadastrar débito em conta</label>
+            </value>
+            <value>
+                <fullName>Excluir débito em conta</fullName>
+                <default>false</default>
+                <label>Excluir débito em conta</label>
+            </value>
+            <value>
+                <fullName>2º via Extrato</fullName>
+                <default>false</default>
+                <label>2º via Extrato</label>
+            </value>
+            <value>
+                <fullName>Dúvidas no extrato</fullName>
+                <default>false</default>
+                <label>Dúvidas no extrato</label>
+            </value>
+            <value>
+                <fullName>2º via Nota fiscal</fullName>
+                <default>false</default>
+                <label>2º via Nota fiscal</label>
+            </value>
+            <value>
+                <fullName>Informe de rendimentos</fullName>
+                <default>false</default>
+                <label>Informe de rendimentos</label>
+            </value>
+            <value>
+                <fullName>Dúvidas/Ajustes no IR</fullName>
+                <default>false</default>
+                <label>Dúvidas/Ajustes no IR</label>
+            </value>
+            <value>
+                <fullName>Dúvidas sobre IPTU</fullName>
+                <default>false</default>
+                <label>Dúvidas sobre IPTU</label>
+            </value>
+            <value>
+                <fullName>Informações seguro complementar</fullName>
+                <default>false</default>
+                <label>Informações seguro complementar</label>
+            </value>
+            <value>
+                <fullName>Inquilino inadimplente</fullName>
+                <default>false</default>
+                <label>Inquilino inadimplente</label>
+            </value>
+            <value>
+                <fullName>Aluguel não Recebido</fullName>
+                <default>false</default>
+                <label>Aluguel não Recebido</label>
+            </value>
+            <value>
+                <fullName>Solicitação de manutenção</fullName>
+                <default>false</default>
+                <label>Solicitação de manutenção</label>
+            </value>
+            <value>
+                <fullName>Reembolso de manutenção</fullName>
+                <default>false</default>
+                <label>Reembolso de manutenção</label>
+            </value>
+            <value>
+                <fullName>Assistência 24h</fullName>
+                <default>false</default>
+                <label>Assistência 24h</label>
+            </value>
+            <value>
+                <fullName>Informações de desocupação</fullName>
+                <default>false</default>
+                <label>Informações de desocupação</label>
+            </value>
+            <value>
+                <fullName>Aviso de desocupação</fullName>
+                <default>false</default>
+                <label>Aviso de desocupação</label>
+            </value>
+            <value>
+                <fullName>Devolução de chaves</fullName>
+                <default>false</default>
+                <label>Devolução de chaves</label>
+            </value>
+            <value>
+                <fullName>Cancelar processo de desocupação</fullName>
+                <default>false</default>
+                <label>Cancelar processo de desocupação</label>
+            </value>
+            <value>
+                <fullName>Agendamento de vistoria</fullName>
+                <default>false</default>
+                <label>Agendamento de vistoria</label>
+            </value>
+            <value>
+                <fullName>Cancelamento de vistoria</fullName>
+                <default>false</default>
+                <label>Cancelamento de vistoria</label>
+            </value>
+            <value>
+                <fullName>Constestação de vistoria</fullName>
+                <default>false</default>
+                <label>Constestação de vistoria</label>
+            </value>
+            <value>
+                <fullName>Dúvidas relatório de reparos</fullName>
+                <default>false</default>
+                <label>Dúvidas relatório de reparos</label>
+            </value>
+            <value>
+                <fullName>Data de vistoria</fullName>
+                <default>false</default>
+                <label>Data de vistoria</label>
+            </value>
+            <value>
+                <fullName>Participar de vistoria</fullName>
+                <default>false</default>
+                <label>Participar de vistoria</label>
+            </value>
+            <value>
+                <fullName>Resultado vistoria</fullName>
+                <default>false</default>
+                <label>Resultado vistoria</label>
+            </value>
+            <value>
+                <fullName>Atualizar dados cadastrais</fullName>
+                <default>false</default>
+                <label>Atualizar dados cadastrais</label>
+            </value>
+            <value>
+                <fullName>Troca de Garantia Locatícia</fullName>
+                <default>false</default>
+                <label>Troca de Garantia Locatícia</label>
+            </value>
+            <value>
+                <fullName>Troca titularidade</fullName>
+                <default>false</default>
+                <label>Troca titularidade</label>
+            </value>
+            <value>
+                <fullName>2º via contrato</fullName>
+                <default>false</default>
+                <label>2º via contrato</label>
+            </value>
+            <value>
+                <fullName>Quero vender meu imóvel</fullName>
+                <default>false</default>
+                <label>Quero vender meu imóvel</label>
+            </value>
+            <value>
+                <fullName>Status caso</fullName>
+                <default>false</default>
+                <label>Status caso</label>
+            </value>
+            <value>
+                <fullName>Outras dúvidas</fullName>
+                <default>false</default>
+                <label>Outras dúvidas</label>
+            </value>
+            <value>
+                <fullName>Dúvida sobre responsabilidade</fullName>
+                <default>false</default>
+                <label>Dúvida sobre responsabilidade</label>
+            </value>
+            <value>
+                <fullName>Negociação Contrato Administração</fullName>
+                <default>false</default>
+                <label>Negociação Contrato Administração</label>
+            </value>
+            <value>
+                <fullName>Condições de Desocupação</fullName>
+                <default>false</default>
+                <label>Condições de Desocupação</label>
+            </value>
+            <value>
+                <fullName>Melhoria no imóvel</fullName>
+                <default>false</default>
+                <label>Melhoria no imóvel</label>
+            </value>
+            <value>
+                <fullName>Valor do Aluguel</fullName>
+                <default>false</default>
+                <label>Valor do Aluguel</label>
+            </value>
+            <value>
+                <fullName>Atualizar dados bancários</fullName>
+                <default>false</default>
+                <label>Atualizar dados bancários</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Consultas Financeiras Gerais</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Contrato</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Desocupação</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Manutenção</controllingFieldValue>
+            <valueName>Status caso</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Consultas Financeiras Gerais</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Contrato</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Desocupação</controllingFieldValue>
+            <controllingFieldValue>Consultas sobre Manutenção</controllingFieldValue>
+            <valueName>Outras dúvidas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Agendamento de vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Cancelamento de vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Constestação de vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Dúvidas relatório de reparos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Data de vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Participar de vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vistoria</controllingFieldValue>
+            <valueName>Resultado vistoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Consultas sobre Manutenção</controllingFieldValue>
+            <valueName>Dúvida sobre responsabilidade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desocupação</controllingFieldValue>
+            <valueName>Informações de desocupação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desocupação</controllingFieldValue>
+            <valueName>Aviso de desocupação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desocupação</controllingFieldValue>
+            <valueName>Devolução de chaves</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Desocupação</controllingFieldValue>
+            <valueName>Cancelar processo de desocupação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extrato</controllingFieldValue>
+            <valueName>2º via Extrato</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extrato</controllingFieldValue>
+            <valueName>Dúvidas no extrato</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extrato</controllingFieldValue>
+            <valueName>2º via Nota fiscal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extrato</controllingFieldValue>
+            <valueName>Informe de rendimentos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Extrato</controllingFieldValue>
+            <valueName>Dúvidas/Ajustes no IR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inadimplência e Repasses</controllingFieldValue>
+            <valueName>Inquilino inadimplente</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Inadimplência e Repasses</controllingFieldValue>
+            <valueName>Aluguel não Recebido</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Informações do contrato</controllingFieldValue>
+            <valueName>2º via contrato</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Informações do contrato</controllingFieldValue>
+            <valueName>Quero vender meu imóvel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Negociação</controllingFieldValue>
+            <valueName>Negociação Contrato Administração</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Negociação</controllingFieldValue>
+            <valueName>Condições de Desocupação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Negociação</controllingFieldValue>
+            <valueName>Melhoria no imóvel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Negociação</controllingFieldValue>
+            <valueName>Valor do Aluguel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Alteração cadastral e contratual</controllingFieldValue>
+            <valueName>Atualizar dados cadastrais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Alteração cadastral e contratual</controllingFieldValue>
+            <valueName>Troca de Garantia Locatícia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Alteração cadastral e contratual</controllingFieldValue>
+            <valueName>Troca titularidade</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Alteração cadastral e contratual</controllingFieldValue>
+            <valueName>Atualizar dados bancários</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitações de Manutenção</controllingFieldValue>
+            <valueName>Solicitação de manutenção</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitações de Manutenção</controllingFieldValue>
+            <valueName>Reembolso de manutenção</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitações de Manutenção</controllingFieldValue>
+            <valueName>Assistência 24h</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>2ª via de boleto</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>Comprovantes de pagamentos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>Dúvida sobre lançamentos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>Dúvidas sobre boleto Final</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>Cadastrar débito em conta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boleto</controllingFieldValue>
+            <valueName>Excluir débito em conta</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Taxas e seguros</controllingFieldValue>
+            <valueName>Dúvidas sobre IPTU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Taxas e seguros</controllingFieldValue>
+            <valueName>Informações seguro complementar</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

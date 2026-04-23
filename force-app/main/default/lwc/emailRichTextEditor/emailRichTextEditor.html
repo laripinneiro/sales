@@ -1,0 +1,63 @@
+<template>
+    <div class="editor-container">
+        <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread slds-m-bottom_small">
+            <div>
+                <lightning-file-upload
+                    name="fileUploader"
+                    accept={acceptedFormats}
+                    record-id={recordId}
+                    onuploadfinished={handleUploadFinished}
+                    class="file-upload-inline" 
+                    multiple>
+                </lightning-file-upload>
+                <p class="warning-size-limit">A soma de todos os arquivos carregados deve ser de até 20 MB</p>
+            </div>
+            <div class="slds-m-right_small">
+                <lightning-button
+                    variant="neutral"
+                    label={toggleLabel}
+                    onclick={toggleMode}>
+                </lightning-button>
+            </div>
+        </div>
+          
+        <template if:true={hasFiles}>
+            <ul class="slds-has-dividers_bottom-space slds-m-bottom_small">
+                <div class="slds-text-body_small slds-text-color_weak slds-m-bottom_x-small">
+                    Total utilizado: <b>{totalSizeFormatted}</b>
+                </div>
+                <template for:each={uploadedFiles} for:item="file">
+                    <li key={file.documentId} class="slds-item">
+                        <lightning-pill 
+                            label={file.name} 
+                            name={file.documentId} 
+                            onremove={handleRemoveFile}>
+                            <lightning-icon icon-name="doctype:attachment" size="x-small" alternative-text="Attachment"></lightning-icon>
+                        </lightning-pill>
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <template if:true={isRichText}>
+            <lightning-input-rich-text
+                value={value}
+                formats={formats}
+                onchange={handleRichTextChange}
+                label="Editor de Texto"
+                placeholder="Digite sua mensagem..."
+                class="editor">
+            </lightning-input-rich-text>
+        </template>
+
+        <template if:false={isRichText}>
+            <lightning-textarea
+                value={value}
+                label="HTML (somente código)"
+                class="html-area"
+                onchange={handleHtmlChange}>
+            </lightning-textarea>
+        </template>          
+       
+    </div>
+</template>

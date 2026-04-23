@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_RegimeCasamentoDadosNovoInquilino__c</fullName>
+    <label>Regime casamento</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Comunhão Parcial</fullName>
+                <default>false</default>
+                <label>Comunhão Parcial</label>
+            </value>
+            <value>
+                <fullName>Comunhão Universal</fullName>
+                <default>false</default>
+                <label>Comunhão Universal</label>
+            </value>
+            <value>
+                <fullName>Separação Total</fullName>
+                <default>false</default>
+                <label>Separação Total</label>
+            </value>
+            <value>
+                <fullName>Participação Final</fullName>
+                <default>false</default>
+                <label>Participação Final</label>
+            </value>
+            <value>
+                <fullName>Não se Aplica</fullName>
+                <default>false</default>
+                <label>Não se Aplica</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CallSourceId__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Campo usado para receber o Id da ligação quando o protocolo é gerado por uma ligação na 55BPX</description>
+    <externalId>true</externalId>
+    <label>Id da Ligacao</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

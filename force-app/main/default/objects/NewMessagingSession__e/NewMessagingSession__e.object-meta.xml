@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Este evento é criado quando o usuário é ativado pelo componente de enviar WhatsApp. Ele armazena o Id de uma sessão de Mensagem e é ouvido pelo LWC RedirectWhatsappSpinner, que usa seus valores para abrir a tela da nova sessão de mensagem criado.</description>
+    <eventType>HighVolume</eventType>
+    <label>New Messaging Session</label>
+    <pluralLabel>New Messaging Sessions</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>

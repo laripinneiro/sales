@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Whatsapp_Message_Action</name>
+        <label>Ação Enviar mensagem de WhatsApp</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>sendWhatsAppMessage</actionName>
+        <actionType>sendWhatsAppMessage</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <nameSegment>sendWhatsAppMessage</nameSegment>
+    </actionCalls>
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <dataSpace>default</dataSpace>
+    <environments>Default</environments>
+    <interviewLabel>[Aluguel] Ativação Novo Número Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Aluguel] Ativação Novo Número Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Whatsapp_Message_Action</targetReference>
+        </connector>
+        <triggerType>Segment</triggerType>
+    </start>
+    <status>InvalidDraft</status>
+</Flow>

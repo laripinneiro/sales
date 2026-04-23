@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_Negocio__c</fullName>
+    <label>Negócio</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Vendas</fullName>
+                <default>false</default>
+                <label>Vendas</label>
+            </value>
+            <value>
+                <fullName>Aluguel</fullName>
+                <default>false</default>
+                <label>Aluguel</label>
+            </value>
+            <value>
+                <fullName>Condomínios</fullName>
+                <default>false</default>
+                <label>Condomínios</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

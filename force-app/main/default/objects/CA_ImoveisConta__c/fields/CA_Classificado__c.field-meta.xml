@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CA_Classificado__c</fullName>
+    <label>Classificado</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Proprietário</fullName>
+                <default>false</default>
+                <label>Proprietário</label>
+            </value>
+            <value>
+                <fullName>Inquilino</fullName>
+                <default>false</default>
+                <label>Inquilino</label>
+            </value>
+            <value>
+                <fullName>Fiador</fullName>
+                <default>false</default>
+                <label>Fiador</label>
+            </value>
+            <value>
+                <fullName>Representante</fullName>
+                <default>false</default>
+                <label>Representante</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

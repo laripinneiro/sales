@@ -1,0 +1,36 @@
+:host {
+    --slds-c-card-heading-font-size: 1.6rem; 
+    --slds-c-card-heading-font-weight: 400;
+    /*--slds-c-card-body-spacing-block-end: 3rem; mais espaço nas bordas*/
+}
+
+.lwc-top-adjust {
+    margin-top: -1rem;
+}
+
+.session-highlights-container {
+    padding: var(--lwc-spacingMedium, 1rem);
+    padding-top: 1.75rem;
+}
+
+.detail-section {
+    padding-bottom: var(--lwc-spacingXSmall, 0.25rem);
+    margin-left: 2.2rem;
+}
+
+.detail-label {
+    color: var(--lwc-colorTextLabel, #444444);
+    font-size:0.9rem;
+    font-weight: var(--lwc-fontWeightRegular, 400);
+}
+
+.detail-value {
+    /*font-weight: var(--lwc-fontWeightSemibold, 600);*/
+    font-size:0.9rem;
+    color: var(--lwc-colorTextDefault, #181818);
+}
+
+.error-message {
+    color: var(--lwc-colorTextError, #c23934);
+    font-size: var(--lwc-fontSizeCaption, 0.75rem);
+}

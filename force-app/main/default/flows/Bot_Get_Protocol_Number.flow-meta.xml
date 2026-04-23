@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Protocolo_Id</name>
+        <label>Protocolo Id</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varProtocoloId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Gerar_Numero_Protocolo.IdProtocolo__c</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>[Bot] Get Protocol Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>[Bot] Create Protocol Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Gerar_Numero_Protocolo</name>
+        <label>Gerar Numero Protocolo</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Protocolo_Id</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>IdCase__c</field>
+            <value>
+                <elementReference>varProtocoloId</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Protocolo__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Gerar_Numero_Protocolo</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>varProtocoloId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,8 @@
+.wrapper-rounded {
+    border: 1px solid #d8dde6;
+    border-radius: 0.75rem;
+    margin: 0 0.75rem; 
+    padding: 0.5rem; 
+    background: white;
+    min-height: fit-content;
+}
