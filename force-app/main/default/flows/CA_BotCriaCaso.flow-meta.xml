@@ -310,7 +310,7 @@
         <defaultConnectorLabel>Não tem caso, cria</defaultConnectorLabel>
         <rules>
             <name>Sim_tem_caso</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>Obter_Sessao_do_Messaging.CaseId</leftValueReference>
                 <operator>IsNull</operator>
